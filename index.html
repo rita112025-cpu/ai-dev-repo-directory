@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Repos Directory</title>
+<meta name="description" content="48 個精選 GitHub repo 導覽，可搜尋、可分類篩選">
+<style>
+  :root{
+    --bg:#0d1117; --bg-2:#161b22; --border:#30363d; --text:#e6edf3;
+    --text-dim:#8b949e; --accent:#58a6ff; --accent-bg:#1f6feb;
+    --chip-bg:#21262d; --chip-active:#1f6feb; --org-badge:#9e6a03;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;
+    line-height:1.5;
+  }
+  header{
+    padding:32px 20px 20px; max-width:1100px; margin:0 auto;
+  }
+  h1{ font-size:1.6rem; margin:0 0 4px; }
+  .subtitle{ color:var(--text-dim); font-size:0.9rem; margin:0 0 20px; }
+  .controls{ max-width:1100px; margin:0 auto; padding:0 20px 20px; position:sticky; top:0; background:var(--bg); z-index:10; }
+  #search{
+    width:100%; padding:10px 14px; font-size:1rem; border-radius:8px;
+    border:1px solid var(--border); background:var(--bg-2); color:var(--text);
+    margin-bottom:12px;
+  }
+  #search:focus{ outline:none; border-color:var(--accent); }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    padding:6px 12px; border-radius:16px; border:1px solid var(--border);
+    background:var(--chip-bg); color:var(--text-dim); font-size:0.82rem;
+    cursor:pointer; user-select:none; white-space:nowrap;
+  }
+  .chip:hover{ border-color:var(--accent); color:var(--text); }
+  .chip.active{ background:var(--chip-active); border-color:var(--chip-active); color:#fff; }
+  .count{ max-width:1100px; margin:0 auto; padding:0 20px 12px; color:var(--text-dim); font-size:0.85rem; }
+  .grid{
+    max-width:1100px; margin:0 auto; padding:0 20px 60px;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px;
+  }
+  .card{
+    border:1px solid var(--border); background:var(--bg-2); border-radius:10px;
+    padding:16px; display:flex; flex-direction:column; gap:8px;
+  }
+  .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
+  .card-name{ font-weight:600; font-size:1rem; word-break:break-word; }
+  .id-badge{ color:var(--text-dim); font-size:0.75rem; flex-shrink:0; }
+  .tagline{ color:var(--accent); font-size:0.85rem; }
+  .desc{ color:var(--text-dim); font-size:0.85rem; }
+  .cat-tag{
+    display:inline-block; font-size:0.72rem; color:var(--text-dim);
+    border:1px solid var(--border); border-radius:5px; padding:2px 8px; width:fit-content;
+  }
+  .org-tag{
+    display:inline-block; font-size:0.7rem; color:var(--org-badge);
+    border:1px solid var(--org-badge); border-radius:5px; padding:2px 8px; width:fit-content;
+  }
+  .card-actions{ display:flex; gap:8px; margin-top:4px; }
+  .card-actions button, .card-actions a{
+    flex:1; text-align:center; padding:7px 10px; border-radius:6px; font-size:0.8rem;
+    border:1px solid var(--border); background:var(--chip-bg); color:var(--text);
+    cursor:pointer; text-decoration:none;
+  }
+  .card-actions a:hover, .card-actions button:hover{ border-color:var(--accent); }
+  .empty{ text-align:center; color:var(--text-dim); padding:60px 20px; }
+  footer{
+    max-width:1100px; margin:0 auto; padding:20px 20px 40px; color:var(--text-dim); font-size:0.78rem;
+    border-top:1px solid var(--border);
+  }
+  footer a{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔗 GitHub Repos Directory</h1>
+  <p class="subtitle" id="subtitle">48 個 repo · 7 個分類</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="搜尋名稱、說明或分類…（例如 memory、interview、ollama）">
+  <div class="chips" id="chips"></div>
+</div>
+
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+
+<footer>
+  <p>共 48 筆，來源共 50 筆項目經去重後移除 2 筆重複連結（#48 與 #7 重複、#50 與 #19 重複）。
+  部分連結因原專案更名或轉移組織，已更新為目前有效網址（詳見 <code>README.md</code>）。
+  #45、#49 為 GitHub 組織首頁，非單一 repo，已標示「組織」。</p>
+</footer>
+
+<script>
+const REPOS = [{"id": 1, "name": "iFixAi", "tagline": "AI misalignment testing", "description": "Independent Auditing of AI Agents, 32 tests across fabrication, manipulation etc", "url": "github.com/ifixai-ai/iFixAi", "category": "Security & OSINT", "org": false}, {"id": 2, "name": "public-apis", "tagline": "free APIs for everything", "description": "Collective list of free APIs for devs", "url": "github.com/public-apis/public-apis", "category": "Learn & Interview", "org": false}, {"id": 3, "name": "build-your-own-x", "tagline": "learn by building", "description": "Master programming by recreating tech from scratch", "url": "github.com/codecrafters-io/build-your-own-x", "category": "Learn & Interview", "org": false}, {"id": 4, "name": "developer-roadmap", "tagline": "learn any tech skill", "description": "Roadmap to become a developer in 2026", "url": "github.com/nilbuild/developer-roadmap", "category": "Learn & Interview", "org": false}, {"id": 5, "name": "free-programming-books", "tagline": "thousands of free books", "description": "Freely available programming books", "url": "github.com/EbookFoundation/free-programming-books", "category": "Learn & Interview", "org": false}, {"id": 6, "name": "system-design-primer", "tagline": "System design interview prep", "description": "Learn how to design large-scale systems. Prep for the system design interview.", "url": "github.com/donnemartin/system-design-primer", "category": "Learn & Interview", "org": false}, {"id": 7, "name": "coding-interview-university", "tagline": "Complete CS study plan for interviews", "description": "Complete computer science study plan to become a software engineer", "url": "github.com/jwasham/coding-interview-university", "category": "Learn & Interview", "org": false}, {"id": 8, "name": "the-art-of-command-line", "tagline": "Master the command line fluency", "description": "Master the command line, in one page", "url": "github.com/jlevy/the-art-of-command-line", "category": "Dev Tools", "org": false}, {"id": 9, "name": "project-based-learning", "tagline": "Build projects to learn", "description": "Build projects to learn — tutorials that build a project", "url": "github.com/practical-tutorials/project-based-learning", "category": "Learn & Interview", "org": false}, {"id": 10, "name": "you-dont-know-js", "tagline": "Deep dive into JS core", "description": "Deep dive into JavaScript core mechanisms", "url": "github.com/getify/You-Dont-Know-JS", "category": "Learn & Interview", "org": false}, {"id": 11, "name": "the-book-of-secret-knowledge", "tagline": "Huge collection of tools and cheatsheets", "description": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, tools", "url": "github.com/trimstray/the-book-of-secret-knowledge", "category": "Dev Tools", "org": false}, {"id": 12, "name": "tech-interview-handbook", "tagline": "Curated interview prep materials", "description": "Curated interview preparation materials for busy engineers", "url": "github.com/yangshun/tech-interview-handbook", "category": "Learn & Interview", "org": false}, {"id": 13, "name": "awesome-selfhosted", "tagline": "Self-hosted alternatives", "description": "A list of Free Software network services and web applications", "url": "github.com/awesome-selfhosted/awesome-selfhosted", "category": "Dev Tools", "org": false}, {"id": 14, "name": "javascript-algorithms", "tagline": "Algorithms implemented in JS", "description": "Algorithms and data structures implemented in JavaScript with explanations", "url": "github.com/trekhleb/javascript-algorithms", "category": "Learn & Interview", "org": false}, {"id": 15, "name": "30-seconds-of-code", "tagline": "Short JS code snippets", "description": "Short JavaScript code snippets for all your development needs", "url": "github.com/Chalarangelo/30-seconds-of-code", "category": "Learn & Interview", "org": false}, {"id": 16, "name": "gitignore templates", "tagline": "Collection of .gitignore templates", "description": "A collection of useful .gitignore templates", "url": "github.com/github/gitignore", "category": "Dev Tools", "org": false}, {"id": 17, "name": "ollama", "tagline": "run LLMs locally", "description": "Run Llama, Mistral, Gemma locally", "url": "github.com/ollama/ollama", "category": "AI Core", "org": false}, {"id": 18, "name": "langchain", "tagline": "Framework for LLM apps", "description": "Framework for developing applications powered by language models", "url": "github.com/langchain-ai/langchain", "category": "AI Core", "org": false}, {"id": 19, "name": "n8n", "tagline": "automation", "description": "Fair-code workflow automation with AI", "url": "github.com/n8n-io/n8n", "category": "Agents & Automation", "org": false}, {"id": 20, "name": "openclaw", "tagline": "local AI assistant", "description": "Open source local assistant", "url": "github.com/openclaw/openclaw", "category": "AI Core", "org": false}, {"id": 21, "name": "dify", "tagline": "AI app builder", "description": "LLM app development platform", "url": "github.com/langgenius/dify", "category": "AI Core", "org": false}, {"id": 22, "name": "langflow", "tagline": "Visual LangChain builder", "description": "Visual builder for LangChain flows", "url": "github.com/langflow-ai/langflow", "category": "AI Core", "org": false}, {"id": 23, "name": "mem0", "tagline": "AI memory layer", "description": "The memory layer for AI — personalized AI memory", "url": "github.com/mem0ai/mem0", "category": "Memory & RAG", "org": false}, {"id": 24, "name": "browser-use", "tagline": "Make websites accessible for AI", "description": "Make websites accessible for AI agents", "url": "github.com/browser-use/browser-use", "category": "Agents & Automation", "org": false}, {"id": 25, "name": "crewAI", "tagline": "Multi-agent framework", "description": "Framework for orchestrating role-playing autonomous AI agents", "url": "github.com/crewAIInc/crewAI", "category": "Agents & Automation", "org": false}, {"id": 26, "name": "MetaGPT", "tagline": "Multi-agent software company", "description": "The Multi-Agent Framework: Given one line requirement, return PRD, design, tasks, repo", "url": "github.com/FoundationAgents/MetaGPT", "category": "Agents & Automation", "org": false}, {"id": 27, "name": "AutoGen", "tagline": "Multi-agent conversation framework", "description": "Microsoft multi-agent conversation framework", "url": "github.com/microsoft/autogen", "category": "Agents & Automation", "org": false}, {"id": 28, "name": "aider", "tagline": "AI coding assistant", "description": "AI pair programming in terminal", "url": "github.com/Aider-AI/aider", "category": "Dev Tools", "org": false}, {"id": 29, "name": "markitdown", "tagline": "Convert anything to markdown for LLMs", "description": "Microsoft tool to convert everything to Markdown for LLMs", "url": "github.com/microsoft/markitdown", "category": "Dev Tools", "org": false}, {"id": 30, "name": "open-webui", "tagline": "ChatGPT UI for local LLMs", "description": "ChatGPT-style UI for local and open LLMs", "url": "github.com/open-webui/open-webui", "category": "Chat & UI", "org": false}, {"id": 31, "name": "maigret", "tagline": "OSINT tool", "description": "Collects a dossier on a person by username from many sources", "url": "github.com/soxoj/maigret", "category": "Security & OSINT", "org": false}, {"id": 32, "name": "TradingAgents", "tagline": "Multi-agent financial trading", "description": "Multi-agent financial trading framework", "url": "github.com/TauricResearch/TradingAgents", "category": "Agents & Automation", "org": false}, {"id": 33, "name": "stagehand", "tagline": "AI browser automation by Browserbase", "description": "AI web browsing framework for automation", "url": "github.com/browserbase/stagehand", "category": "Agents & Automation", "org": false}, {"id": 34, "name": "firecrawl", "tagline": "Turn any website into LLM-ready data", "description": "Turn any website into LLM-ready data", "url": "github.com/firecrawl/firecrawl", "category": "Dev Tools", "org": false}, {"id": 35, "name": "transformers", "tagline": "State-of-the-art ML", "description": "State-of-the-art Machine Learning for PyTorch, TensorFlow, and JAX", "url": "github.com/huggingface/transformers", "category": "AI Core", "org": false}, {"id": 36, "name": "vLLM", "tagline": "High-throughput LLM serving", "description": "High-throughput and memory-efficient inference for LLMs", "url": "github.com/vllm-project/vllm", "category": "AI Core", "org": false}, {"id": 37, "name": "llama.cpp", "tagline": "Run LLMs in C++", "description": "Port of Llama in C++ with efficient inference", "url": "github.com/ggml-org/llama.cpp", "category": "AI Core", "org": false}, {"id": 38, "name": "llama_index", "tagline": "Data framework for LLM apps", "description": "Data framework for connecting custom data to LLMs", "url": "github.com/run-llama/llama_index", "category": "Memory & RAG", "org": false}, {"id": 39, "name": "nanoGPT", "tagline": "Simplest GPT training", "description": "The simplest, fastest repository for training/finetuning medium-sized GPTs", "url": "github.com/karpathy/nanoGPT", "category": "AI Core", "org": false}, {"id": 40, "name": "RAGFlow", "tagline": "RAG engine with deep doc understanding", "description": "Open-source RAG engine with deep document understanding", "url": "github.com/infiniflow/ragflow", "category": "Memory & RAG", "org": false}, {"id": 41, "name": "supermemory", "tagline": "Memory and context engine", "description": "Fast scalable memory API for AI", "url": "github.com/supermemoryai/supermemory", "category": "Memory & RAG", "org": false}, {"id": 42, "name": "awesome-claude-skills", "tagline": "Curated Claude skills and tools", "description": "Curated list of Claude skills, prompts and tools", "url": "github.com/ComposioHQ/awesome-claude-skills", "category": "Chat & UI", "org": false}, {"id": 43, "name": "Bumblebee", "tagline": "Perplexity's supply-chain scanner", "description": "Read-only endpoint scanner for supply-chain", "url": "github.com/perplexityai/bumblebee", "category": "Security & OSINT", "org": false}, {"id": 44, "name": "ComfyUI", "tagline": "Node-based Stable Diffusion UI", "description": "Powerful and modular stable diffusion GUI with graph/nodes", "url": "github.com/comfyanonymous/ComfyUI", "category": "Chat & UI", "org": false}, {"id": 45, "name": "DeepSeek", "tagline": "DeepSeek AI models", "description": "DeepSeek AI models and research", "url": "github.com/deepseek-ai", "category": "AI Core", "org": true}, {"id": 46, "name": "Lobe Chat", "tagline": "AI agent operations platform", "description": "Originally \"Lobe Chat\"; repo renamed lobehub/lobehub, now framed as an AI agent orchestration platform rather than a chat UI", "url": "github.com/lobehub/lobehub", "category": "Chat & UI", "org": false}, {"id": 47, "name": "freeCodeCamp", "tagline": "Learn to code for free", "description": "Learn to code for free — full curriculum", "url": "github.com/freeCodeCamp/freeCodeCamp", "category": "Learn & Interview", "org": false}, {"id": 49, "name": "AI agents ecosystem", "tagline": "Curated AI agents resources", "description": "Curated AI agents resources and examples", "url": "github.com/langchain-ai", "category": "Agents & Automation", "org": true}];
+
+const CATEGORIES = ["All", ...Array.from(new Set(REPOS.map(r => r.category))).sort()];
+
+let activeCategory = "All";
+let query = "";
+
+const chipsEl = document.getElementById('chips');
+const gridEl = document.getElementById('grid');
+const countEl = document.getElementById('count');
+const searchEl = document.getElementById('search');
+const subtitleEl = document.getElementById('subtitle');
+
+subtitleEl.textContent = `${REPOS.length} 個 repo · ${CATEGORIES.length - 1} 個分類`;
+
+function renderChips(){
+  chipsEl.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const el = document.createElement('div');
+    el.className = 'chip' + (cat === activeCategory ? ' active' : '');
+    el.textContent = cat;
+    el.addEventListener('click', () => {
+      activeCategory = cat;
+      renderChips();
+      renderGrid();
+    });
+    chipsEl.appendChild(el);
+  });
+}
+
+function matches(repo){
+  const inCategory = activeCategory === 'All' || repo.category === activeCategory;
+  if(!inCategory) return false;
+  if(!query) return true;
+  const q = query.toLowerCase();
+  return repo.name.toLowerCase().includes(q)
+    || repo.tagline.toLowerCase().includes(q)
+    || repo.description.toLowerCase().includes(q)
+    || repo.category.toLowerCase().includes(q)
+    || repo.url.toLowerCase().includes(q);
+}
+
+function renderGrid(){
+  const filtered = REPOS.filter(matches);
+  countEl.textContent = `顯示 ${filtered.length} / ${REPOS.length} 筆`;
+  gridEl.innerHTML = '';
+
+  if(filtered.length === 0){
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = '沒有符合的結果';
+    gridEl.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach(repo => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const fullUrl = 'https://' + repo.url;
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-name">${escapeHtml(repo.name)}</div>
+        <div class="id-badge">#${repo.id}</div>
+      </div>
+      <div class="tagline">${escapeHtml(repo.tagline)}</div>
+      <div class="desc">${escapeHtml(repo.description)}</div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <span class="cat-tag">${escapeHtml(repo.category)}</span>
+        ${repo.org ? '<span class="org-tag">組織首頁</span>' : ''}
+      </div>
+      <div class="card-actions">
+        <button data-url="${escapeHtml(fullUrl)}" class="copy-btn">複製連結</button>
+        <a href="${escapeHtml(fullUrl)}" target="_blank" rel="noopener noreferrer">開啟</a>
+      </div>
+    `;
+    gridEl.appendChild(card);
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-url');
+      try{
+        await navigator.clipboard.writeText(url);
+        const original = btn.textContent;
+        btn.textContent = '已複製';
+        setTimeout(() => { btn.textContent = original; }, 1200);
+      }catch(e){
+        prompt('複製連結：', url);
+      }
+    });
+  });
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+searchEl.addEventListener('input', (e) => {
+  query = e.target.value.trim();
+  renderGrid();
+});
+
+renderChips();
+renderGrid();
+</script>
+
+</body>
+</html>
