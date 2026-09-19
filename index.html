@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitHub Repos Directory</title>
-<meta name="description" content="48 個精選 GitHub repo 導覽，可搜尋、可分類篩選">
+<title>AI 與開發者開源專案導覽｜48 個 GitHub 精選連結</title>
+<meta name="description" content="收錄 48 個 GitHub 開源專案連結，涵蓋 AI 模型與框架、AI Agent 與自動化、聊天介面、開發工具、程式學習與面試準備、AI 記憶與 RAG、資安與 OSINT，可搜尋、可依分類篩選。">
 <style>
   :root{
     --bg:#0d1117; --bg-2:#161b22; --border:#30363d; --text:#e6edf3;
@@ -21,7 +21,15 @@
     padding:32px 20px 20px; max-width:1100px; margin:0 auto;
   }
   h1{ font-size:1.6rem; margin:0 0 4px; }
-  .subtitle{ color:var(--text-dim); font-size:0.9rem; margin:0 0 20px; }
+  .subtitle{ color:var(--text-dim); font-size:0.9rem; margin:0 0 16px; }
+  .intro{
+    border:1px solid var(--border); background:var(--bg-2); border-radius:10px;
+    padding:14px 18px; color:var(--text-dim); font-size:0.88rem; line-height:1.7;
+  }
+  .intro p{ margin:0 0 8px; }
+  .intro ul{ margin:4px 0 0; padding-left:20px; }
+  .intro li{ margin:2px 0; }
+  .intro strong{ color:var(--text); }
   .controls{ max-width:1100px; margin:0 auto; padding:0 20px 20px; position:sticky; top:0; background:var(--bg); z-index:10; }
   #search{
     width:100%; padding:10px 14px; font-size:1rem; border-radius:8px;
@@ -77,8 +85,21 @@
 <body>
 
 <header>
-  <h1>🔗 GitHub Repos Directory</h1>
-  <p class="subtitle" id="subtitle">48 個 repo · 7 個分類</p>
+  <h1>🔗 AI 與開發者開源專案導覽</h1>
+  <p class="subtitle" id="subtitle">48 個連結 · 7 個分類</p>
+  <div class="intro">
+    <p>這裡收錄的每一個網址，都是 <strong>GitHub 上的開源專案頁面</strong>（GitHub 是程式碼託管平台，開發者把專案原始碼、說明文件放在上面公開分享）。點進去可以看到專案介紹、原始碼與使用說明；各專案的授權條款不同，使用前請看該頁面的 License。</p>
+    <p>其中 46 個是<strong>單一專案（repo）</strong>，2 個（DeepSeek、LangChain）是<strong>組織首頁</strong>，底下包含該團隊的多個專案，卡片上會標示「組織首頁」。</p>
+    <ul>
+      <li><strong>AI Core（10）</strong>：AI 模型與底層框架，例如在自己電腦上跑大型語言模型（LLM）的工具、模型訓練與推論框架。</li>
+      <li><strong>Agents &amp; Automation（8）</strong>：AI Agent（能自己拆解任務、呼叫工具的 AI 程式）與工作流程自動化工具。</li>
+      <li><strong>Chat &amp; UI（4）</strong>：AI 聊天介面、圖像生成操作介面，以及 Claude 技能清單。</li>
+      <li><strong>Dev Tools（7）</strong>：開發輔助工具，例如 AI 寫程式助手、檔案轉 Markdown、網頁轉 AI 可讀資料、指令列技巧。</li>
+      <li><strong>Learn &amp; Interview（12）</strong>：程式學習資源與面試準備，例如免費程式書、學習路線圖、系統設計教材。</li>
+      <li><strong>Memory &amp; RAG（4）</strong>：讓 AI 記住資訊或查詢自有資料的工具。RAG（檢索增強生成）是先查資料、再讓 AI 根據查到的內容回答。</li>
+      <li><strong>Security &amp; OSINT（3）</strong>：資安檢測與公開情資蒐集（OSINT）工具。</li>
+    </ul>
+  </div>
 </header>
 
 <div class="controls">
@@ -109,7 +130,7 @@ const countEl = document.getElementById('count');
 const searchEl = document.getElementById('search');
 const subtitleEl = document.getElementById('subtitle');
 
-subtitleEl.textContent = `${REPOS.length} 個 repo · ${CATEGORIES.length - 1} 個分類`;
+subtitleEl.textContent = `${REPOS.length} 個連結 · ${CATEGORIES.length - 1} 個分類`;
 
 function renderChips(){
   chipsEl.innerHTML = '';

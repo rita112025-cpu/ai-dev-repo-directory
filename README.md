@@ -1,4 +1,4 @@
-# GitHub Repos Directory
+# AI 與開發者開源專案導覽
 
 純前端單頁網站，48 筆 GitHub repo 導覽，可搜尋、可依分類篩選、可複製連結或直接開啟。無外部字型或 CDN 依賴，`index.html` 單檔即可部署。
 
