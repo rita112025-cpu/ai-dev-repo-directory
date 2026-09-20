@@ -127,7 +127,536 @@
 </footer>
 
 <script>
-const REPOS = [{"id": 1, "name": "iFixAi", "tagline": "AI misalignment testing", "description": "Independent Auditing of AI Agents, 32 tests across fabrication, manipulation etc", "url": "github.com/ifixai-ai/iFixAi", "category": "Security & OSINT", "org": false}, {"id": 2, "name": "public-apis", "tagline": "free APIs for everything", "description": "Collective list of free APIs for devs", "url": "github.com/public-apis/public-apis", "category": "Learn & Interview", "org": false}, {"id": 3, "name": "build-your-own-x", "tagline": "learn by building", "description": "Master programming by recreating tech from scratch", "url": "github.com/codecrafters-io/build-your-own-x", "category": "Learn & Interview", "org": false}, {"id": 4, "name": "developer-roadmap", "tagline": "learn any tech skill", "description": "Roadmap to become a developer in 2026", "url": "github.com/nilbuild/developer-roadmap", "category": "Learn & Interview", "org": false}, {"id": 5, "name": "free-programming-books", "tagline": "thousands of free books", "description": "Freely available programming books", "url": "github.com/EbookFoundation/free-programming-books", "category": "Learn & Interview", "org": false}, {"id": 6, "name": "system-design-primer", "tagline": "System design interview prep", "description": "Learn how to design large-scale systems. Prep for the system design interview.", "url": "github.com/donnemartin/system-design-primer", "category": "Learn & Interview", "org": false}, {"id": 7, "name": "coding-interview-university", "tagline": "Complete CS study plan for interviews", "description": "Complete computer science study plan to become a software engineer", "url": "github.com/jwasham/coding-interview-university", "category": "Learn & Interview", "org": false}, {"id": 8, "name": "the-art-of-command-line", "tagline": "Master the command line fluency", "description": "Master the command line, in one page", "url": "github.com/jlevy/the-art-of-command-line", "category": "Dev Tools", "org": false}, {"id": 9, "name": "project-based-learning", "tagline": "Build projects to learn", "description": "Build projects to learn — tutorials that build a project", "url": "github.com/practical-tutorials/project-based-learning", "category": "Learn & Interview", "org": false}, {"id": 10, "name": "you-dont-know-js", "tagline": "Deep dive into JS core", "description": "Deep dive into JavaScript core mechanisms", "url": "github.com/getify/You-Dont-Know-JS", "category": "Learn & Interview", "org": false}, {"id": 11, "name": "the-book-of-secret-knowledge", "tagline": "Huge collection of tools and cheatsheets", "description": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, tools", "url": "github.com/trimstray/the-book-of-secret-knowledge", "category": "Dev Tools", "org": false}, {"id": 12, "name": "tech-interview-handbook", "tagline": "Curated interview prep materials", "description": "Curated interview preparation materials for busy engineers", "url": "github.com/yangshun/tech-interview-handbook", "category": "Learn & Interview", "org": false}, {"id": 13, "name": "awesome-selfhosted", "tagline": "Self-hosted alternatives", "description": "A list of Free Software network services and web applications", "url": "github.com/awesome-selfhosted/awesome-selfhosted", "category": "Dev Tools", "org": false}, {"id": 14, "name": "javascript-algorithms", "tagline": "Algorithms implemented in JS", "description": "Algorithms and data structures implemented in JavaScript with explanations", "url": "github.com/trekhleb/javascript-algorithms", "category": "Learn & Interview", "org": false}, {"id": 15, "name": "30-seconds-of-code", "tagline": "Short JS code snippets", "description": "Short JavaScript code snippets for all your development needs", "url": "github.com/Chalarangelo/30-seconds-of-code", "category": "Learn & Interview", "org": false}, {"id": 16, "name": "gitignore templates", "tagline": "Collection of .gitignore templates", "description": "A collection of useful .gitignore templates", "url": "github.com/github/gitignore", "category": "Dev Tools", "org": false}, {"id": 17, "name": "ollama", "tagline": "run LLMs locally", "description": "Run Llama, Mistral, Gemma locally", "url": "github.com/ollama/ollama", "category": "AI Core", "org": false}, {"id": 18, "name": "langchain", "tagline": "Framework for LLM apps", "description": "Framework for developing applications powered by language models", "url": "github.com/langchain-ai/langchain", "category": "AI Core", "org": false}, {"id": 19, "name": "n8n", "tagline": "automation", "description": "Fair-code workflow automation with AI", "url": "github.com/n8n-io/n8n", "category": "Agents & Automation", "org": false}, {"id": 20, "name": "openclaw", "tagline": "local AI assistant", "description": "Open source local assistant", "url": "github.com/openclaw/openclaw", "category": "AI Core", "org": false}, {"id": 21, "name": "dify", "tagline": "AI app builder", "description": "LLM app development platform", "url": "github.com/langgenius/dify", "category": "AI Core", "org": false}, {"id": 22, "name": "langflow", "tagline": "Visual LangChain builder", "description": "Visual builder for LangChain flows", "url": "github.com/langflow-ai/langflow", "category": "AI Core", "org": false}, {"id": 23, "name": "mem0", "tagline": "AI memory layer", "description": "The memory layer for AI — personalized AI memory", "url": "github.com/mem0ai/mem0", "category": "Memory & RAG", "org": false}, {"id": 24, "name": "browser-use", "tagline": "Make websites accessible for AI", "description": "Make websites accessible for AI agents", "url": "github.com/browser-use/browser-use", "category": "Agents & Automation", "org": false}, {"id": 25, "name": "crewAI", "tagline": "Multi-agent framework", "description": "Framework for orchestrating role-playing autonomous AI agents", "url": "github.com/crewAIInc/crewAI", "category": "Agents & Automation", "org": false}, {"id": 26, "name": "MetaGPT", "tagline": "Multi-agent software company", "description": "The Multi-Agent Framework: Given one line requirement, return PRD, design, tasks, repo", "url": "github.com/FoundationAgents/MetaGPT", "category": "Agents & Automation", "org": false}, {"id": 27, "name": "AutoGen", "tagline": "Multi-agent conversation framework", "description": "Microsoft multi-agent conversation framework", "url": "github.com/microsoft/autogen", "category": "Agents & Automation", "org": false}, {"id": 28, "name": "aider", "tagline": "AI coding assistant", "description": "AI pair programming in terminal", "url": "github.com/Aider-AI/aider", "category": "Dev Tools", "org": false}, {"id": 29, "name": "markitdown", "tagline": "Convert anything to markdown for LLMs", "description": "Microsoft tool to convert everything to Markdown for LLMs", "url": "github.com/microsoft/markitdown", "category": "Dev Tools", "org": false}, {"id": 30, "name": "open-webui", "tagline": "ChatGPT UI for local LLMs", "description": "ChatGPT-style UI for local and open LLMs", "url": "github.com/open-webui/open-webui", "category": "Chat & UI", "org": false}, {"id": 31, "name": "maigret", "tagline": "OSINT tool", "description": "Collects a dossier on a person by username from many sources", "url": "github.com/soxoj/maigret", "category": "Security & OSINT", "org": false}, {"id": 32, "name": "TradingAgents", "tagline": "Multi-agent financial trading", "description": "Multi-agent financial trading framework", "url": "github.com/TauricResearch/TradingAgents", "category": "Agents & Automation", "org": false}, {"id": 33, "name": "stagehand", "tagline": "AI browser automation by Browserbase", "description": "AI web browsing framework for automation", "url": "github.com/browserbase/stagehand", "category": "Agents & Automation", "org": false}, {"id": 34, "name": "firecrawl", "tagline": "Turn any website into LLM-ready data", "description": "Turn any website into LLM-ready data", "url": "github.com/firecrawl/firecrawl", "category": "Dev Tools", "org": false}, {"id": 35, "name": "transformers", "tagline": "State-of-the-art ML", "description": "State-of-the-art Machine Learning for PyTorch, TensorFlow, and JAX", "url": "github.com/huggingface/transformers", "category": "AI Core", "org": false}, {"id": 36, "name": "vLLM", "tagline": "High-throughput LLM serving", "description": "High-throughput and memory-efficient inference for LLMs", "url": "github.com/vllm-project/vllm", "category": "AI Core", "org": false}, {"id": 37, "name": "llama.cpp", "tagline": "Run LLMs in C++", "description": "Port of Llama in C++ with efficient inference", "url": "github.com/ggml-org/llama.cpp", "category": "AI Core", "org": false}, {"id": 38, "name": "llama_index", "tagline": "Data framework for LLM apps", "description": "Data framework for connecting custom data to LLMs", "url": "github.com/run-llama/llama_index", "category": "Memory & RAG", "org": false}, {"id": 39, "name": "nanoGPT", "tagline": "Simplest GPT training", "description": "The simplest, fastest repository for training/finetuning medium-sized GPTs", "url": "github.com/karpathy/nanoGPT", "category": "AI Core", "org": false}, {"id": 40, "name": "RAGFlow", "tagline": "RAG engine with deep doc understanding", "description": "Open-source RAG engine with deep document understanding", "url": "github.com/infiniflow/ragflow", "category": "Memory & RAG", "org": false}, {"id": 41, "name": "supermemory", "tagline": "Memory and context engine", "description": "Fast scalable memory API for AI", "url": "github.com/supermemoryai/supermemory", "category": "Memory & RAG", "org": false}, {"id": 42, "name": "awesome-claude-skills", "tagline": "Curated Claude skills and tools", "description": "Curated list of Claude skills, prompts and tools", "url": "github.com/ComposioHQ/awesome-claude-skills", "category": "Chat & UI", "org": false}, {"id": 43, "name": "Bumblebee", "tagline": "Perplexity's supply-chain scanner", "description": "Read-only endpoint scanner for supply-chain", "url": "github.com/perplexityai/bumblebee", "category": "Security & OSINT", "org": false}, {"id": 44, "name": "ComfyUI", "tagline": "Node-based Stable Diffusion UI", "description": "Powerful and modular stable diffusion GUI with graph/nodes", "url": "github.com/comfyanonymous/ComfyUI", "category": "Chat & UI", "org": false}, {"id": 45, "name": "DeepSeek", "tagline": "DeepSeek AI models", "description": "DeepSeek AI models and research", "url": "github.com/deepseek-ai", "category": "AI Core", "org": true}, {"id": 46, "name": "Lobe Chat", "tagline": "AI agent operations platform", "description": "Originally \"Lobe Chat\"; repo renamed lobehub/lobehub, now framed as an AI agent orchestration platform rather than a chat UI", "url": "github.com/lobehub/lobehub", "category": "Chat & UI", "org": false}, {"id": 47, "name": "freeCodeCamp", "tagline": "Learn to code for free", "description": "Learn to code for free — full curriculum", "url": "github.com/freeCodeCamp/freeCodeCamp", "category": "Learn & Interview", "org": false}, {"id": 49, "name": "AI agents ecosystem", "tagline": "Curated AI agents resources", "description": "Curated AI agents resources and examples", "url": "github.com/langchain-ai", "category": "Agents & Automation", "org": true}];
+const REPOS = [
+  {
+    "id": 1,
+    "name": "iFixAi",
+    "tagline": "AI misalignment testing",
+    "description": "Independent Auditing of AI Agents, 32 tests across fabrication, manipulation etc",
+    "url": "github.com/ifixai-ai/iFixAi",
+    "category": "Security & OSINT",
+    "org": false,
+    "tagline_zh": "AI 失準行為檢測",
+    "description_zh": "AI 代理獨立審計工具，提供 32 項測試，檢測捏造、操縱、欺騙等失準風險"
+  },
+  {
+    "id": 2,
+    "name": "public-apis",
+    "tagline": "free APIs for everything",
+    "description": "Collective list of free APIs for devs",
+    "url": "github.com/public-apis/public-apis",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "什麼免費 API 都有",
+    "description_zh": "開發者必備的免費 API 大全，整理各種公開可用的 API 清單"
+  },
+  {
+    "id": 3,
+    "name": "build-your-own-x",
+    "tagline": "learn by building",
+    "description": "Master programming by recreating tech from scratch",
+    "url": "github.com/codecrafters-io/build-your-own-x",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "透過重做來學習",
+    "description_zh": "從零開始重做資料庫、Git、Docker 等技術，透過實作掌握程式設計核心"
+  },
+  {
+    "id": 4,
+    "name": "developer-roadmap",
+    "tagline": "learn any tech skill",
+    "description": "Roadmap to become a developer in 2026",
+    "url": "github.com/nilbuild/developer-roadmap",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "學任何技術的路線圖",
+    "description_zh": "2026 版開發者學習路線圖，涵蓋前端、後端、DevOps、AI 等完整路徑"
+  },
+  {
+    "id": 5,
+    "name": "free-programming-books",
+    "tagline": "thousands of free books",
+    "description": "Freely available programming books",
+    "url": "github.com/EbookFoundation/free-programming-books",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "上千本免費程式書",
+    "description_zh": "免費可取得的程式設計書籍清單，涵蓋各種語言與主題"
+  },
+  {
+    "id": 6,
+    "name": "system-design-primer",
+    "tagline": "System design interview prep",
+    "description": "Learn how to design large-scale systems. Prep for the system design interview.",
+    "url": "github.com/donnemartin/system-design-primer",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "系統設計面試準備",
+    "description_zh": "學習如何設計大型分散式系統，準備系統設計面試的經典教材"
+  },
+  {
+    "id": 7,
+    "name": "coding-interview-university",
+    "tagline": "Complete CS study plan for interviews",
+    "description": "Complete computer science study plan to become a software engineer",
+    "url": "github.com/jwasham/coding-interview-university",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "面試的完整 CS 自學計畫",
+    "description_zh": "成為軟體工程師的完整電腦科學自學計畫，含演算法與面試題庫"
+  },
+  {
+    "id": 8,
+    "name": "the-art-of-command-line",
+    "tagline": "Master the command line fluency",
+    "description": "Master the command line, in one page",
+    "url": "github.com/jlevy/the-art-of-command-line",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "精通指令列",
+    "description_zh": "一頁掌握命令列精髓，提升終端機操作效率的必備指南"
+  },
+  {
+    "id": 9,
+    "name": "project-based-learning",
+    "tagline": "Build projects to learn",
+    "description": "Build projects to learn — tutorials that build a project",
+    "url": "github.com/practical-tutorials/project-based-learning",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "做專案來學習",
+    "description_zh": "透過實作完整專案來學習，收集各類從做中學的教學"
+  },
+  {
+    "id": 10,
+    "name": "you-dont-know-js",
+    "tagline": "Deep dive into JS core",
+    "description": "Deep dive into JavaScript core mechanisms",
+    "url": "github.com/getify/You-Dont-Know-JS",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "深入 JS 核心",
+    "description_zh": "深入 JavaScript 核心機制，理解閉包、原型、非同步等原理"
+  },
+  {
+    "id": 11,
+    "name": "the-book-of-secret-knowledge",
+    "tagline": "Huge collection of tools and cheatsheets",
+    "description": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, tools",
+    "url": "github.com/trimstray/the-book-of-secret-knowledge",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "工具與備忘單大合集",
+    "description_zh": "各種工具、備忘單、部落格、技巧、一行指令的靈感清單合集"
+  },
+  {
+    "id": 12,
+    "name": "tech-interview-handbook",
+    "tagline": "Curated interview prep materials",
+    "description": "Curated interview preparation materials for busy engineers",
+    "url": "github.com/yangshun/tech-interview-handbook",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "精選面試準備教材",
+    "description_zh": "給忙碌工程師的精選面試準備資料，含常見題型與解法"
+  },
+  {
+    "id": 13,
+    "name": "awesome-selfhosted",
+    "tagline": "Self-hosted alternatives",
+    "description": "A list of Free Software network services and web applications",
+    "url": "github.com/awesome-selfhosted/awesome-selfhosted",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "可自架的開源服務",
+    "description_zh": "可自行架設的免費開源網路服務與 Web 應用清單，替代 SaaS"
+  },
+  {
+    "id": 14,
+    "name": "javascript-algorithms",
+    "tagline": "Algorithms implemented in JS",
+    "description": "Algorithms and data structures implemented in JavaScript with explanations",
+    "url": "github.com/trekhleb/javascript-algorithms",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "用 JS 實作演算法",
+    "description_zh": "用 JavaScript 實作演算法與資料結構，並附詳細解說"
+  },
+  {
+    "id": 15,
+    "name": "30-seconds-of-code",
+    "tagline": "Short JS code snippets",
+    "description": "Short JavaScript code snippets for all your development needs",
+    "url": "github.com/Chalarangelo/30-seconds-of-code",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "精簡 JS 程式碼片段",
+    "description_zh": "滿足日常開發需求的精簡實用 JavaScript 程式碼片段"
+  },
+  {
+    "id": 16,
+    "name": "gitignore templates",
+    "tagline": "Collection of .gitignore templates",
+    "description": "A collection of useful .gitignore templates",
+    "url": "github.com/github/gitignore",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": ".gitignore 範本合集",
+    "description_zh": "各種程式語言與框架的 .gitignore 範本，幫你快速忽略不該提交的檔案"
+  },
+  {
+    "id": 17,
+    "name": "ollama",
+    "tagline": "run LLMs locally",
+    "description": "Run Llama, Mistral, Gemma locally",
+    "url": "github.com/ollama/ollama",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "在本機執行 LLM",
+    "description_zh": "在自己電腦上輕鬆跑 Llama、Mistral、Gemma 等大型語言模型"
+  },
+  {
+    "id": 18,
+    "name": "langchain",
+    "tagline": "Framework for LLM apps",
+    "description": "Framework for developing applications powered by language models",
+    "url": "github.com/langchain-ai/langchain",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "LLM 應用開發框架",
+    "description_zh": "用語言模型開發應用的核心框架，支援鏈式呼叫與工具整合"
+  },
+  {
+    "id": 19,
+    "name": "n8n",
+    "tagline": "automation",
+    "description": "Fair-code workflow automation with AI",
+    "url": "github.com/n8n-io/n8n",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "工作流程自動化",
+    "description_zh": "公平程式碼授權的 AI 工作流程自動化平台，可串接各種 API"
+  },
+  {
+    "id": 20,
+    "name": "openclaw",
+    "tagline": "local AI assistant",
+    "description": "Open source local assistant",
+    "url": "github.com/openclaw/openclaw",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "本地端 AI 助理",
+    "description_zh": "開源的本地 AI 助理，可在自己電腦上運行的個人助手"
+  },
+  {
+    "id": 21,
+    "name": "dify",
+    "tagline": "AI app builder",
+    "description": "LLM app development platform",
+    "url": "github.com/langgenius/dify",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "AI 應用建構平台",
+    "description_zh": "LLM 應用開發平台，提供可視化建構 AI 應用的工具"
+  },
+  {
+    "id": 22,
+    "name": "langflow",
+    "tagline": "Visual LangChain builder",
+    "description": "Visual builder for LangChain flows",
+    "url": "github.com/langflow-ai/langflow",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "視覺化 LangChain 建構器",
+    "description_zh": "用拖拉方式視覺化建立 LangChain 流程，降低開發門檻"
+  },
+  {
+    "id": 23,
+    "name": "mem0",
+    "tagline": "AI memory layer",
+    "description": "The memory layer for AI — personalized AI memory",
+    "url": "github.com/mem0ai/mem0",
+    "category": "Memory & RAG",
+    "org": false,
+    "tagline_zh": "AI 記憶層",
+    "description_zh": "AI 的個人化長期記憶層，讓 AI 記住使用者偏好與歷史"
+  },
+  {
+    "id": 24,
+    "name": "browser-use",
+    "tagline": "Make websites accessible for AI",
+    "description": "Make websites accessible for AI agents",
+    "url": "github.com/browser-use/browser-use",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "讓網站變成 AI 可用",
+    "description_zh": "讓網站對 AI 代理更友善，提供可供 AI 自動操作的介面"
+  },
+  {
+    "id": 25,
+    "name": "crewAI",
+    "tagline": "Multi-agent framework",
+    "description": "Framework for orchestrating role-playing autonomous AI agents",
+    "url": "github.com/crewAIInc/crewAI",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "多代理協作框架",
+    "description_zh": "協調扮演不同角色的自主 AI 代理，讓多個 AI 像團隊一樣協作"
+  },
+  {
+    "id": 26,
+    "name": "MetaGPT",
+    "tagline": "Multi-agent software company",
+    "description": "The Multi-Agent Framework: Given one line requirement, return PRD, design, tasks, repo",
+    "url": "github.com/FoundationAgents/MetaGPT",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "多代理軟體公司",
+    "description_zh": "一句需求自動產出 PRD、設計、任務分工與完整程式碼庫的多代理框架"
+  },
+  {
+    "id": 27,
+    "name": "AutoGen",
+    "tagline": "Multi-agent conversation framework",
+    "description": "Microsoft multi-agent conversation framework",
+    "url": "github.com/microsoft/autogen",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "多代理對話框架",
+    "description_zh": "微軟推出的多代理對話框架，讓多個代理透過對話協作完成任務"
+  },
+  {
+    "id": 28,
+    "name": "aider",
+    "tagline": "AI coding assistant",
+    "description": "AI pair programming in terminal",
+    "url": "github.com/Aider-AI/aider",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "終端機 AI 寫程式夥伴",
+    "description_zh": "在終端機裡的 AI 結對程式設計助手，直接幫你改程式碼"
+  },
+  {
+    "id": 29,
+    "name": "markitdown",
+    "tagline": "Convert anything to markdown for LLMs",
+    "description": "Microsoft tool to convert everything to Markdown for LLMs",
+    "url": "github.com/microsoft/markitdown",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "萬物轉 Markdown 供 LLM 讀",
+    "description_zh": "微軟開源工具，把 PDF、Office、音訊等各種檔案轉成 LLM 好讀的 Markdown"
+  },
+  {
+    "id": 30,
+    "name": "open-webui",
+    "tagline": "ChatGPT UI for local LLMs",
+    "description": "ChatGPT-style UI for local and open LLMs",
+    "url": "github.com/open-webui/open-webui",
+    "category": "Chat & UI",
+    "org": false,
+    "tagline_zh": "本地 LLM 的 ChatGPT 介面",
+    "description_zh": "給本地與開源模型用的 ChatGPT 風格聊天介面，支援 Ollama 等後端"
+  },
+  {
+    "id": 31,
+    "name": "maigret",
+    "tagline": "OSINT tool",
+    "description": "Collects a dossier on a person by username from many sources",
+    "url": "github.com/soxoj/maigret",
+    "category": "Security & OSINT",
+    "org": false,
+    "tagline_zh": "OSINT 帳號追蹤工具",
+    "description_zh": "透過使用者名稱從上百個網站蒐集個人公開檔案的情資工具"
+  },
+  {
+    "id": 32,
+    "name": "TradingAgents",
+    "tagline": "Multi-agent financial trading",
+    "description": "Multi-agent financial trading framework",
+    "url": "github.com/TauricResearch/TradingAgents",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "多代理金融交易",
+    "description_zh": "多代理協作的金融交易框架，模擬交易員、分析師等角色決策"
+  },
+  {
+    "id": 33,
+    "name": "stagehand",
+    "tagline": "AI browser automation by Browserbase",
+    "description": "AI web browsing framework for automation",
+    "url": "github.com/browserbase/stagehand",
+    "category": "Agents & Automation",
+    "org": false,
+    "tagline_zh": "AI 瀏覽器自動化",
+    "description_zh": "Browserbase 推出的 AI 網頁自動操作框架，讓 AI 自動瀏覽與操作網站"
+  },
+  {
+    "id": 34,
+    "name": "firecrawl",
+    "tagline": "Turn any website into LLM-ready data",
+    "description": "Turn any website into LLM-ready data",
+    "url": "github.com/firecrawl/firecrawl",
+    "category": "Dev Tools",
+    "org": false,
+    "tagline_zh": "網站轉 LLM 就緒資料",
+    "description_zh": "把任意網站爬取並轉成 LLM 可直接使用的乾淨資料與 Markdown"
+  },
+  {
+    "id": 35,
+    "name": "transformers",
+    "tagline": "State-of-the-art ML",
+    "description": "State-of-the-art Machine Learning for PyTorch, TensorFlow, and JAX",
+    "url": "github.com/huggingface/transformers",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "最先進的機器學習框架",
+    "description_zh": "支援 PyTorch、TensorFlow、JAX 的最先進機器學習模型庫，NLP 標配"
+  },
+  {
+    "id": 36,
+    "name": "vLLM",
+    "tagline": "High-throughput LLM serving",
+    "description": "High-throughput and memory-efficient inference for LLMs",
+    "url": "github.com/vllm-project/vllm",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "高效 LLM 推論服務",
+    "description_zh": "高吞吐、省記憶體的 LLM 推論引擎，適合大規模部署"
+  },
+  {
+    "id": 37,
+    "name": "llama.cpp",
+    "tagline": "Run LLMs in C++",
+    "description": "Port of Llama in C++ with efficient inference",
+    "url": "github.com/ggml-org/llama.cpp",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "用 C++ 跑 LLM",
+    "description_zh": "Llama 的 C++ 移植版，支援在 CPU 上高效推論大型模型"
+  },
+  {
+    "id": 38,
+    "name": "llama_index",
+    "tagline": "Data framework for LLM apps",
+    "description": "Data framework for connecting custom data to LLMs",
+    "url": "github.com/run-llama/llama_index",
+    "category": "Memory & RAG",
+    "org": false,
+    "tagline_zh": "LLM 的資料連接框架",
+    "description_zh": "連接自有資料與 LLM 的資料框架，RAG 的核心元件之一"
+  },
+  {
+    "id": 39,
+    "name": "nanoGPT",
+    "tagline": "Simplest GPT training",
+    "description": "The simplest, fastest repository for training/finetuning medium-sized GPTs",
+    "url": "github.com/karpathy/nanoGPT",
+    "category": "AI Core",
+    "org": false,
+    "tagline_zh": "最簡易的 GPT 訓練",
+    "description_zh": "最簡單、快速的中型 GPT 訓練與微調程式庫，Karpathy 出品"
+  },
+  {
+    "id": 40,
+    "name": "RAGFlow",
+    "tagline": "RAG engine with deep doc understanding",
+    "description": "Open-source RAG engine with deep document understanding",
+    "url": "github.com/infiniflow/ragflow",
+    "category": "Memory & RAG",
+    "org": false,
+    "tagline_zh": "深度文件理解的 RAG 引擎",
+    "description_zh": "開源 RAG 引擎，具備深度文件解析、版面理解能力"
+  },
+  {
+    "id": 41,
+    "name": "supermemory",
+    "tagline": "Memory and context engine",
+    "description": "Fast scalable memory API for AI",
+    "url": "github.com/supermemoryai/supermemory",
+    "category": "Memory & RAG",
+    "org": false,
+    "tagline_zh": "記憶與上下文引擎",
+    "description_zh": "快速可擴展的 AI 記憶與上下文 API，讓 AI 擁有長期記憶"
+  },
+  {
+    "id": 42,
+    "name": "awesome-claude-skills",
+    "tagline": "Curated Claude skills and tools",
+    "description": "Curated list of Claude skills, prompts and tools",
+    "url": "github.com/ComposioHQ/awesome-claude-skills",
+    "category": "Chat & UI",
+    "org": false,
+    "tagline_zh": "Claude 技能精選",
+    "description_zh": "精選的 Claude Skills、提示詞與工具清單，擴充 Claude 能力"
+  },
+  {
+    "id": 43,
+    "name": "Bumblebee",
+    "tagline": "Perplexity's supply-chain scanner",
+    "description": "Read-only endpoint scanner for supply-chain",
+    "url": "github.com/perplexityai/bumblebee",
+    "category": "Security & OSINT",
+    "org": false,
+    "tagline_zh": "供應鏈安全掃描器",
+    "description_zh": "Perplexity 的唯讀供應鏈端點掃描工具，檢測供應鏈風險"
+  },
+  {
+    "id": 44,
+    "name": "ComfyUI",
+    "tagline": "Node-based Stable Diffusion UI",
+    "description": "Powerful and modular stable diffusion GUI with graph/nodes",
+    "url": "github.com/comfyanonymous/ComfyUI",
+    "category": "Chat & UI",
+    "org": false,
+    "tagline_zh": "節點式 Stable Diffusion 介面",
+    "description_zh": "強大模組化的 Stable Diffusion 圖形介面，用節點流程圖方式生圖"
+  },
+  {
+    "id": 45,
+    "name": "DeepSeek",
+    "tagline": "DeepSeek AI models",
+    "description": "DeepSeek AI models and research",
+    "url": "github.com/deepseek-ai",
+    "category": "AI Core",
+    "org": true,
+    "tagline_zh": "DeepSeek AI 模型全家桶",
+    "description_zh": "【組織首頁】DeepSeek 官方組織，包含 DeepSeek-V3、R1 等開源模型與研究"
+  },
+  {
+    "id": 46,
+    "name": "Lobe Chat",
+    "tagline": "AI agent operations platform",
+    "description": "Originally \"Lobe Chat\"; repo renamed lobehub/lobehub, now framed as an AI agent orchestration platform rather than a chat UI",
+    "url": "github.com/lobehub/lobehub",
+    "category": "Chat & UI",
+    "org": false,
+    "tagline_zh": "AI 代理營運平台",
+    "description_zh": "原 Lobe Chat，已更名為 LobeHub，現在定位為 7x24 管理 AI 代理團隊的營運平台"
+  },
+  {
+    "id": 47,
+    "name": "freeCodeCamp",
+    "tagline": "Learn to code for free",
+    "description": "Learn to code for free — full curriculum",
+    "url": "github.com/freeCodeCamp/freeCodeCamp",
+    "category": "Learn & Interview",
+    "org": false,
+    "tagline_zh": "免費學程式完整課程",
+    "description_zh": "免費學寫程式的完整課程，含前端、後端、演算法與專案實作"
+  },
+  {
+    "id": 49,
+    "name": "AI agents ecosystem",
+    "tagline": "Curated AI agents resources",
+    "description": "Curated AI agents resources and examples",
+    "url": "github.com/langchain-ai",
+    "category": "Agents & Automation",
+    "org": true,
+    "tagline_zh": "AI 代理生態系精選",
+    "description_zh": "【組織首頁】LangChain 官方組織，精選 AI 代理相關資源、範例與工具"
+  }
+];
 
 const CATEGORIES = ["All", ...Array.from(new Set(REPOS.map(r => r.category))).sort()];
 
@@ -191,7 +720,9 @@ function matches(repo){
   const q = query.toLowerCase();
   return repo.name.toLowerCase().includes(q)
     || repo.tagline.toLowerCase().includes(q)
+    || (repo.tagline_zh||'').toLowerCase().includes(q)
     || repo.description.toLowerCase().includes(q)
+    || (repo.description_zh||'').toLowerCase().includes(q)
     || repo.category.toLowerCase().includes(q)
     || repo.url.toLowerCase().includes(q);
 }
@@ -220,8 +751,8 @@ function renderGrid(){
         <div class="card-name">${escapeHtml(repo.name)}</div>
         <div class="id-badge">#${repo.id}</div>
       </div>
-      <div class="tagline">${escapeHtml(repo.tagline)}</div>
-      <div class="desc">${escapeHtml(repo.description)}</div>
+      <div class="tagline">${escapeHtml(repo.tagline)} <span style="color:#8b949e">/ ${escapeHtml(repo.tagline_zh||"")}</span></div>
+      <div class="desc">${escapeHtml(repo.description)}<br><span style="color:#e6edf3">中文：${escapeHtml(repo.description_zh||"")}</span></div>
       <div style="display:flex; gap:6px; flex-wrap:wrap;">
         <span class="cat-tag">${escapeHtml(repo.category)}</span>
         ${repo.org ? '<span class="org-tag">組織首頁</span>' : ''}
